@@ -184,6 +184,20 @@ export default function Carousel({ locale }) {
                     faded || !carouselGallery ? styles.blueBg : ''
                   }`}>
                   <p
+                    onClick={() =>
+                      router
+                        .push(
+                          {
+                            pathname: '/about-us'
+                          },
+                          undefined,
+                          { scroll: false }
+                        )
+                        .then(() => {
+                          window.scrollTo({ top: 610, behavior: 'smooth' });
+                          setOpenMenu(false);
+                        })
+                    }
                     className={`${returnClassName('')} ${
                       router.pathname === '/about-us' ? styles.activeBtn : null
                     }`}>
