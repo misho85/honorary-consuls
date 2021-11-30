@@ -13,5 +13,8 @@ module.exports = {
   ...nextTranslate(),
   sassOptions: {
     includePaths: [path.join(__dirname, 'styles')]
+  },
+  experimental: {
+    scrollRestoration: true
   }
 };

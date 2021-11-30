@@ -1,11 +1,26 @@
 html,
 body {
+  scroll-behavior: smooth;
   padding: 0;
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell,
-    Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+  font-family: 'Heebo', sans-serif;
 }
-
+::-webkit-scrollbar {
+  width: 5px;
+  height: 5px;
+}
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(150deg, #495c99 56%, #b6b7ba 84%);
+  border-radius: 30px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #223f9a;
+}
+::-webkit-scrollbar-track {
+  background: #f0f0f0;
+  border-radius: 0px;
+  box-shadow: inset 0px 0px 0px 0px #f0f0f0;
+}
 a {
   color: inherit;
   text-decoration: none;
@@ -13,4 +28,21 @@ a {
 
 * {
   box-sizing: border-box;
+}
+.MuiDialog-root .MuiPaper-root {
+  background: transparent;
+  font-size: 2rem;
+  box-shadow: none;
+  box-sizing: content-box;
+  padding: 3rem;
+  width: 700px;
+}
+.MuiDialog-root .MuiPaper-root input {
+  font-size: 1.6rem;
+}
+.MuiDialog-root .MuiPaper-root .MuiFormLabel-root {
+  font-size: 1.6rem;
+}
+.MuiDialog-root .MuiBackdrop-root {
+  background-color: rgba(255, 255, 255, 0.95);
 }
