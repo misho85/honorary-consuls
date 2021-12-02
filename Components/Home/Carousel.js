@@ -104,7 +104,12 @@ export default function Carousel({ locale }) {
       className={styles.carouselContainer}
       style={carouselGallery ? { height: '800px' } : { height: '200px' }}
       ref={carouselRef}>
-      <SearchDialog isOpen={isSearchOpen} setIsOpen={setIsSearchOpen} locale={locale} />
+      <SearchDialog
+        isOpen={isSearchOpen}
+        setIsOpen={setIsSearchOpen}
+        locale={locale}
+        setOpenMenu={setOpenMenu}
+      />
       <div className={styles.carouselContent}>
         <div
           className={styles.title}
@@ -122,7 +127,7 @@ export default function Carousel({ locale }) {
               <h3>{t('common:header_title')}</h3>
               <h3>{t('common:header_title_he')}</h3>
             </div>
-            <div className={styles.langSwticher}>
+            <div className={returnClassName(styles.langSwticher)}>
               <Link href={router.asPath} locale="en" scroll={false}>
                 <a>
                   <span
@@ -152,6 +157,28 @@ export default function Carousel({ locale }) {
               <CloseIcon />
             </div>
             <div className={returnClassName(styles.links)}>
+              <div
+                className={returnClassName(styles.langSwtichervNav)}
+                style={locale === 'he' ? { alignSelf: 'self-end' } : null}>
+                <Link href={router.asPath} locale="en" scroll={false}>
+                  <a>
+                    <span
+                      style={locale === 'he' ? { marginRight: '1.2rem' } : null}
+                      className={locale === 'en' ? styles.activeBtn : null}>
+                      English
+                    </span>
+                  </a>
+                </Link>
+                <Link href={router.asPath} locale="he" scroll={false}>
+                  <a>
+                    <span
+                      style={locale === 'en' ? { marginLeft: '1.2rem' } : null}
+                      className={locale === 'he' ? styles.activeBtn : null}>
+                      עִברִית
+                    </span>
+                  </a>
+                </Link>
+              </div>
               <p
                 style={locale === 'he' ? { marginRight: '0rem' } : null}
                 className={`${returnClassName('')} ${
@@ -379,7 +406,9 @@ export default function Carousel({ locale }) {
                 {t('common:contact')}
               </p>
             </div>
-            <p onClick={() => setIsSearchOpen(true)}>
+            <p
+              onClick={() => setIsSearchOpen(true)}
+              className={`${returnClassName(styles.search)}`}>
               <SearchIcon />
             </p>
           </div>

@@ -5,7 +5,7 @@ import { useRouter } from 'next/router';
 // *[_type in ["consuls", "post"]] | [[title.en, name] match 'new*']
 export default function News({ locale, consuls }) {
   const sortedConsuls = consuls.sort((a, b) => a.displayTitle.localeCompare(b.displayTitle));
-  console.log(consuls);
+
   const router = useRouter();
   const returnClassName = classname => {
     if (locale === 'he') {

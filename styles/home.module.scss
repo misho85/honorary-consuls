@@ -117,11 +117,7 @@
   text-align: right;
   flex-direction: row-reverse;
 }
-.langSwticher {
-  @media screen and (max-width: 1000px) {
-    display: none;
-  }
-}
+
 .hamBtn {
   display: none;
   @media screen and (max-width: 1000px) {
@@ -153,8 +149,6 @@
   }
   p {
     @media screen and (max-width: 1000px) {
-      opacity: 0.8;
-      display: none;
     }
     opacity: 0.6;
     text-transform: uppercase;
@@ -335,6 +329,7 @@
 .singleNewsContainer,
 .newsContainer,
 .infoContainer {
+  min-height: 700px;
   padding: 3rem 0rem;
   background-color: #f6f6f7;
   h3.pageTitle {
@@ -442,6 +437,7 @@
   text-align: right;
 }
 .linkBlock {
+  cursor: pointer;
   padding-bottom: 1.6rem;
   border-bottom: 1px solid grey;
   h3 {
@@ -672,7 +668,65 @@ p.he {
   cursor: pointer;
 }
 .closeSearch {
+  left: 30px;
+  z-index: 3000;
   cursor: pointer;
   position: absolute;
-  top: 0px;
+  top: 30px;
+}
+.submitBtn {
+  cursor: pointer;
+  background: none;
+  border: none;
+}
+.search {
+  @media screen and (max-width: 1000px) {
+    svg {
+      width: 2rem;
+      height: 2rem;
+      opacity: 1;
+    }
+    position: fixed;
+    z-index: 3000;
+    opacity: 1;
+    opacity: 1;
+    bottom: 15px;
+    right: 10px;
+    display: block;
+    text-align: right;
+  }
+}
+.search.he {
+  @media screen and (max-width: 1000px) {
+    svg {
+      width: 2rem;
+      height: 2rem;
+      opacity: 1;
+    }
+    position: fixed;
+    z-index: 3000;
+    opacity: 1;
+    opacity: 1;
+    bottom: 15px;
+    left: 10px;
+    text-align: left;
+    display: block;
+  }
+}
+.langSwticher {
+  @media screen and (max-width: 1000px) {
+    display: none;
+  }
+}
+.langSwtichervNav {
+  border-bottom: 1px solid black;
+  @media screen and (max-width: 1000px) {
+    span {
+      opacity: 0.6;
+      display: inline-block;
+    }
+    span.activeBtn {
+      opacity: 1;
+    }
+  }
 }

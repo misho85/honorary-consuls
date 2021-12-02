@@ -9,7 +9,6 @@ import styles from '../../styles/home.module.scss';
 import router from 'next/router';
 
 export default function SingleNews({ locale, consul }) {
-  console.log(consul);
   const { bio, country, displayTitle, image, socialMedia } = consul[0];
 
   const { t } = useTranslation();

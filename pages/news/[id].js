@@ -16,7 +16,7 @@ export default function SingleNews({ locale, news }) {
       scrollRef.current.scrollTo(0, Math.random() * 5000);
     }
   }, []);
-  console.log(postGallery);
+
   const returnClassName = classname => {
     if (locale === 'he') {
       return `${classname} ${styles.he}`;

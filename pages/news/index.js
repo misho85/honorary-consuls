@@ -5,7 +5,6 @@ import NewsBlock from 'Components/Home/NewsBlock';
 
 // *[_type in ["consuls", "post"]] | [[title.en, name] match 'new*']
 export default function News({ locale, news }) {
-  console.log(news);
   return (
     <>
       <NewsBlock news={news} locale={locale} />

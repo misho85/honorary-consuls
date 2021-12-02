@@ -6,7 +6,6 @@ import styles from '../styles/common.module.scss';
 import Carousel from '../Components/Home/Carousel';
 import Footer from '../Components/Common/Footer';
 function MyApp({ Component, pageProps }) {
-  console.log(pageProps);
   const { t } = useTranslation();
   return (
     <>

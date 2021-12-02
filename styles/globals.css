@@ -46,3 +46,11 @@ a {
 .MuiDialog-root .MuiBackdrop-root {
   background-color: rgba(255, 255, 255, 0.95);
 }
+@media screen and (max-width: 1000px) {
+  .MuiDialog-root .MuiPaper-root {
+    padding: 0rem;
+  }
+  .MuiDialog-root .MuiPaper-root input::placeholder {
+    font-size: 0.6em;
+  }
+}
