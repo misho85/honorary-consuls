@@ -370,6 +370,10 @@
   div.content {
     display: flex;
   }
+  div.content.he {
+    justify-content: flex-end;
+    display: flex;
+  }
 }
 .singleNewsContent.he {
   text-align: right;

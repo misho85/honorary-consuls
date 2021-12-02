@@ -37,7 +37,7 @@ export default function SingleNews({ locale, news }) {
           <span>{t('common:on')}</span>
           <span className={styles.blue}>{moment(_createdAt).format('MMMM DD, YYYY')}</span>
         </p>
-        <div className={styles.content}>
+        <div className={returnClassName(styles.content)}>
           {body?.[locale] ? (
             <PortableText renderContainerOnSingleChild blocks={body[locale]} />
           ) : null}
