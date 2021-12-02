@@ -104,7 +104,7 @@ export default function Carousel({ locale }) {
       className={styles.carouselContainer}
       style={carouselGallery ? { height: '800px' } : { height: '200px' }}
       ref={carouselRef}>
-      <SearchDialog isOpen={isSearchOpen} setIsOpen={setIsSearchOpen} />
+      <SearchDialog isOpen={isSearchOpen} setIsOpen={setIsSearchOpen} locale={locale} />
       <div className={styles.carouselContent}>
         <div
           className={styles.title}
@@ -146,7 +146,9 @@ export default function Carousel({ locale }) {
             className={`${returnClassName(styles.navContent)} ${openMenu && styles.activeMenu}`}
             onMouseEnter={() => handleDarken('+')}
             onMouseLeave={() => handleDarken('-')}>
-            <div className={styles.navContentOverlay} onClick={() => setOpenMenu(false)}>
+            <div
+              className={`${returnClassName(styles.navContentOverlay)}`}
+              onClick={() => setOpenMenu(false)}>
               <CloseIcon />
             </div>
             <div className={returnClassName(styles.links)}>
@@ -171,7 +173,7 @@ export default function Carousel({ locale }) {
                 }>
                 {t('common:home')}
               </p>
-              <div className={styles.linksContainer}>
+              <div className={`${returnClassName(styles.linksContainer)}`}>
                 <p
                   className={`${returnClassName('')} ${
                     router.pathname === '/about-us' ? styles.activeBtn : null
@@ -249,7 +251,7 @@ export default function Carousel({ locale }) {
                 </a>
               </Link>
 
-              <div className={styles.linksContainer}>
+              <div className={`${returnClassName(styles.linksContainer)}`}>
                 <p>
                   {t('common:conventions')}
                   <ExpandMoreIcon />

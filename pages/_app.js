@@ -1,15 +1,17 @@
 import '../styles/globals.css';
 import Head from 'next/head';
 import { CarouselProvider } from '../context/CarouselContext';
-
+import useTranslation from 'next-translate/useTranslation';
 import styles from '../styles/common.module.scss';
 import Carousel from '../Components/Home/Carousel';
 import Footer from '../Components/Common/Footer';
 function MyApp({ Component, pageProps }) {
+  console.log(pageProps);
+  const { t } = useTranslation();
   return (
     <>
       <Head>
-        <title>THE ISRAELI HONORARY CONSULAR CORPS</title>
+        <title>{t('common:consular_corps_of_israel')}</title>
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="true" />
         <link

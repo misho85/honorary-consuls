@@ -19,5 +19,19 @@
   "on": "on",
   "consular_corps_of_israel": "The Consular Corps of Israel",
   "ethic_convention": "Ethics Convention",
-  "who_are_we": "Who are we:"
+  "who_are_we": "Who are we:",
+  "first-name": "First name",
+  "last-name": "Last name",
+  "phone": "Phone",
+  "email": "Email",
+  "subject": "Subject",
+  "body": "Body",
+  "submit": "Submit",
+  "not-a-robot": "I am not a robot",
+  "search-placeholder": "Enter the name of a consul or a country...",
+  "change-language": "Change language",
+  "office-address_1": "Gad-Pro Investments",
+  "office-address_2": "28 Haarbaa Street North Tower, 23 FL, Tel Aviv, 6473925, Israel",
+  "office-phone": "+972-3-6951869",
+  "office-mail": "office@propper-investments.com"
 }

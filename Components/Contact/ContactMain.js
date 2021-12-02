@@ -18,47 +18,50 @@ const ContacTMain = ({ news, locale }) => {
           </h3>
           <h4>{t('common:consular_corps_of_israel')}</h4>
           <p className={styles.address}>
-            5, Tuval Street, Tel Aviv 67897, Israel; Phone: (03) 623 5073
+            {t('common:office-address_1')} <br /> {t('common:office-address_2')}
           </p>
-          <a href="mailto:consuls123@gmail.com">E-mail: consuls123@gmail.com</a>
+          <a href={t('common:office-mail')}>{t('common:office-mail')}</a>
         </div>
 
         <form className={returnClassName(styles.contactForm)}>
           <div className={styles.formRow}>
             <div>
-              <label htmlFor="firstName">First name:</label>
-              <input type="text" name="firstName" />
+              <label htmlFor="firstName">{t('common:first-name')}</label>
+              <input type="text" name="firstName" dir={locale === 'he' ? 'rtl' : 'ltf'} />
             </div>
             <div>
-              <label htmlFor="firstName">Last name:</label>
-              <input type="text" name="lastName" />
+              <label htmlFor="firstName">{t('common:last-name')}</label>
+              <input type="text" name="lastName" dir={locale === 'he' ? 'rtl' : 'ltf'} />
             </div>
           </div>
           <div className={styles.formRow}>
             <div>
-              <label htmlFor="phone">Phone:</label>
-              <input type="tel" name="phone" />
+              <label htmlFor="phone">{t('common:phone')}</label>
+              <input type="tel" name="phone" dir={locale === 'he' ? 'rtl' : 'ltf'} />
             </div>
             <div>
-              <label htmlFor="email">E-mail:</label>
-              <input type="email" name="email" />
+              <label htmlFor="email">{t('common:email')}</label>
+              <input type="email" name="email" dir={locale === 'he' ? 'rtl' : 'ltf'} />
             </div>
           </div>
           <div className={styles.subjectRow}>
             <div>
-              <label htmlFor="phone">Subject:</label>
-              <input type="text" name="subject" />
+              <label htmlFor="phone">{t('common:subject')}</label>
+              <input type="text" name="subject" dir={locale === 'he' ? 'rtl' : 'ltf'} />
             </div>
           </div>
           <div className={styles.textArea}>
-            <label htmlFor="phone">Body:</label>
-            <textarea name="body" cols="30" rows="10" />
+            <label htmlFor="phone">{t('common:body')}</label>
+            <textarea name="body" cols="30" rows="10" dir={locale === 'he' ? 'rtl' : 'ltf'} />
           </div>
           <div className={returnClassName(styles.submitRow)}>
             <div>
-              <input type="checkbox" name="robot" /> <label htmlFor="robot">I am not a robot</label>
+              <input type="checkbox" name="robot" />{' '}
+              <label htmlFor="robot">{t('common:not-a-robot')}</label>
             </div>
-            <button type="submit">SUBMIT</button>
+            <button style={{ textTransform: 'uppercase' }} type="submit">
+              {t('common:submit')}
+            </button>
           </div>
         </form>
       </div>

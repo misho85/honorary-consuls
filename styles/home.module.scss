@@ -199,6 +199,16 @@
     }
   }
 }
+.navContentOverlay.he {
+  svg {
+    cursor: pointer;
+    top: 15px;
+    left: 10px;
+    height: 50px;
+    width: 50px;
+    position: absolute;
+  }
+}
 .links {
   transition: 0.2s ease-in-out;
   display: flex;
@@ -206,7 +216,7 @@
   align-items: center;
   @media screen and (max-width: 1000px) {
     transition: 0.3s ease-in-out;
-
+    overflow: auto;
     width: 80%;
     max-width: 500px;
     background: #5471b6;
@@ -239,7 +249,7 @@
   @media screen and (max-width: 1000px) {
     text-align: right;
     transition: 0.3s ease-in-out;
-
+    padding-right: 0.7rem;
     width: 80%;
     max-width: 500px;
     background: #5471b6;
@@ -257,9 +267,9 @@
       padding: 1rem 0rem;
     }
   }
-  p {
+  p,
+  a {
     @media screen and (max-width: 1000px) {
-      margin-right: 0.7rem;
       align-self: flex-end;
     }
   }
@@ -278,6 +288,7 @@
 }
 .linksContainer .dropDown {
   padding: 0rem 1rem;
+  padding-bottom: 0rem;
   min-width: 235px;
   transition: 0.2s ease-in-out;
   overflow: hidden;
@@ -306,6 +317,12 @@
 }
 .linksContainer:hover .dropDown {
   max-height: 270px;
+  padding-bottom: 1rem;
+}
+.linksContainer.he {
+  @media screen and (max-width: 1000px) {
+    align-self: flex-end;
+  }
 }
 .darken {
   transition: 0.2s ease-in-out;
@@ -639,4 +656,23 @@ p.he {
 }
 .consulBio.he {
   text-align: right;
+}
+.searchInput {
+  width: 80%;
+  border: none;
+}
+.searchInputDiv {
+  width: 100%;
+  align-items: center;
+  justify-content: center;
+  display: flex;
+  border: none;
+}
+.searchIcon {
+  cursor: pointer;
+}
+.closeSearch {
+  cursor: pointer;
+  position: absolute;
+  top: 0px;
 }
