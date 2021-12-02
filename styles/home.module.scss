@@ -719,8 +719,10 @@ p.he {
   }
 }
 .langSwtichervNav {
+  display: none;
   border-bottom: 1px solid black;
   @media screen and (max-width: 1000px) {
+    display: block;
     span {
       opacity: 0.6;
       display: inline-block;
