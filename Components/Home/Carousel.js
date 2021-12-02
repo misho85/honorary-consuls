@@ -206,14 +206,42 @@ export default function Carousel({ locale }) {
                     {t('common:about_link_one')}
                   </p>
                   <p
+                    onClick={() =>
+                      router
+                        .push(
+                          {
+                            pathname: '/corps/dean'
+                          },
+                          undefined,
+                          { scroll: false }
+                        )
+                        .then(() => {
+                          window.scrollTo({ top: 610, behavior: 'smooth' });
+                          setOpenMenu(false);
+                        })
+                    }
                     className={`${returnClassName('')} ${
-                      router.pathname === '/dean' ? styles.activeBtn : null
+                      router?.query?.id === 'dean' ? styles.activeBtn : null
                     }`}>
                     {t('common:about_link_two')}
                   </p>
                   <p
+                    onClick={() =>
+                      router
+                        .push(
+                          {
+                            pathname: '/corps/deputy-dean'
+                          },
+                          undefined,
+                          { scroll: false }
+                        )
+                        .then(() => {
+                          window.scrollTo({ top: 610, behavior: 'smooth' });
+                          setOpenMenu(false);
+                        })
+                    }
                     className={`${returnClassName('')} ${
-                      router.pathname === '/deputy-dean' ? styles.activeBtn : null
+                      router?.query?.id === 'deputy-dean' ? styles.activeBtn : null
                     }`}>
                     {t('common:about_link_three')}
                   </p>
@@ -260,8 +288,21 @@ export default function Carousel({ locale }) {
                   className={`${returnClassName(styles.dropDown)} ${
                     faded || !carouselGallery ? styles.blueBg : ''
                   }`}>
-                  <p>{t('common:vienna_convention')}</p>
-                  <p>{t('common:ethic_convention')}</p>
+                  <p
+                    onClick={() => {
+                      return router.push('/docs/vienna.pdf');
+                    }}>
+                    {t('common:vienna_convention')}
+                  </p>
+                  <p
+                    onClick={() => {
+                      if (locale === 'he') {
+                        return router.push('/docs/ethics_he.pdf');
+                      }
+                      return router.push('/docs/ethics_eng.pdf');
+                    }}>
+                    {t('common:ethic_convention')}
+                  </p>
                 </div>
               </div>
 
