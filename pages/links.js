@@ -1,10 +1,12 @@
 import React from 'react';
-
+import { getClient } from 'lib/sanity';
+import { groq } from 'next-sanity';
 import useTranslation from 'next-translate/useTranslation';
 import InfoBlock from '../Components/Common/InfoBlock';
 
 import styles from '../styles/home.module.scss';
-const Links = ({ locale }) => {
+const Links = ({ locale, links }) => {
+  console.log(links);
   const { t } = useTranslation();
   const returnClassName = classname => {
     if (locale === 'he') {
@@ -12,72 +14,37 @@ const Links = ({ locale }) => {
     }
     return `${classname}`;
   };
+
   return (
     <>
       <div className={styles.infoContainer}>
         <div className={styles.linksContent}>
           <h3 className={returnClassName(styles.pageTitle)}>Links</h3>
-          <InfoBlock className={returnClassName(styles.linkBlock)}>
-            <h3>Lorem ipsum dolor sit amet</h3>
-            <p>
-              Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex
-              ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-              cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-              proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-            </p>
-            <a href="/">Visit link</a>
-          </InfoBlock>
-          <InfoBlock className={returnClassName(styles.linkBlock)}>
-            <h3>Lorem ipsum dolor sit amet</h3>
-            <p>
-              Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex
-              ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-              cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-              proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-            </p>
-            <a href="/">Visit link</a>
-          </InfoBlock>
-          <InfoBlock className={returnClassName(styles.linkBlock)}>
-            <h3>Lorem ipsum dolor sit amet</h3>
-            <p>
-              Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex
-              ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-              cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-              proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-            </p>
-            <a href="/">Visit link</a>
-          </InfoBlock>
-          <InfoBlock className={returnClassName(styles.linkBlock)}>
-            <h3>Lorem ipsum dolor sit amet</h3>
-            <p>
-              Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex
-              ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-              cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-              proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-            </p>
-            <a href="/">Visit link</a>
-          </InfoBlock>
-          <InfoBlock className={returnClassName(styles.linkBlock)}>
-            <h3>Lorem ipsum dolor sit amet</h3>
-            <p>
-              Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex
-              ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-              cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-              proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-            </p>
-            <a href="/">Visit link</a>
-          </InfoBlock>
+          {links?.map(link => {
+            return (
+              <InfoBlock className={returnClassName(styles.linkBlock)} key={link?._id}>
+                <h3>{link?.name?.[locale]}</h3>
+                <p>{link?.description?.[locale]}</p>
+                <a href={link?.url}>{t('common:visit_link')}</a>
+              </InfoBlock>
+            );
+          })}
         </div>
       </div>
     </>
   );
 };
-
+const queryLinks = groq`
+*[_type == "links"] | order(_createdAt desc)
+`;
 export const getStaticProps = async ({ locale }) => {
+  const links = await getClient(false).fetch(queryLinks);
   return {
     props: {
+      links,
       locale
-    }
+    },
+    revalidate: 10
   };
 };
 

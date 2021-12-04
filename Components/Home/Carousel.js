@@ -274,8 +274,22 @@ export default function Carousel({ locale }) {
                   </p>
                   <p
                     className={`${returnClassName('')} ${
-                      router.pathname === '/management' ? styles.activeBtn : null
-                    }`}>
+                      router.pathname === '/corps/management' ? styles.activeBtn : null
+                    }`}
+                    onClick={() =>
+                      router
+                        .push(
+                          {
+                            pathname: '/corps/management'
+                          },
+                          undefined,
+                          { scroll: false }
+                        )
+                        .then(() => {
+                          window.scrollTo({ top: 610, behavior: 'smooth' });
+                          setOpenMenu(false);
+                        })
+                    }>
                     {t('common:about_link_four')}
                   </p>
                   <p

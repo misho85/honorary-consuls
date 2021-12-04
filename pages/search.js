@@ -43,7 +43,7 @@ export const getServerSideProps = async ctx => {
     };
   }
   const searchQuery = groq`
-*[_type in ["consuls", "post"]] | [[title.en, name, country, author] match '${searchKey}*']
+*[_type in ["consuls", "post"]] | [[title.${locale}, name, country, author, excerpt.${locale}] match '${searchKey}*']
 `;
   const searchRes = await getClient(false).fetch(searchQuery);
 

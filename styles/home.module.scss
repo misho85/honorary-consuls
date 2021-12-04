@@ -569,12 +569,6 @@
     color: #fff;
     border: none;
     background-color: #223f9a;
-    @media (hover: hover) {
-      opacity: 0.3;
-    }
-    &:hover {
-      opacity: 1;
-    }
   }
 }
 .submitRow.he {
@@ -735,4 +729,16 @@ p.he {
       opacity: 1;
     }
   }
+}
+.loaderDiv {
+  z-index: 3000;
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: rgba(211, 211, 211, 0.514);
 }
