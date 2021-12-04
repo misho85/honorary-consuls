@@ -153,7 +153,7 @@ const ContacTMain = ({ news, locale }) => {
               <input
                 type="checkbox"
                 name="robot"
-                value={mail?.notRobot}
+                checked={mail?.notRobot}
                 onChange={e => {
                   return setMail(prevState => {
                     return { ...prevState, notRobot: !prevState?.notRobot };
