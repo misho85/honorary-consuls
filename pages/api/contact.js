@@ -41,10 +41,11 @@ export default async function(req, res) {
     });
   });
   await new Promise((resolve, reject) => {
+    console.log(user, pass);
     transporter.sendMail(mailData, function(err, info) {
       if (err) {
-        reject(error);
         console.log(err);
+        reject(error);
       } else {
         console.log(info);
 
