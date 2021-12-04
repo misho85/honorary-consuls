@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import useTranslation from 'next-translate/useTranslation';
-import Dialog from '@material-ui/Core/Dialog';
 import styles from '../../styles/home.module.scss';
 import Loader from 'Components/Common/Loader';
 const ContacTMain = ({ news, locale }) => {
