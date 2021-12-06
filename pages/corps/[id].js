@@ -23,7 +23,7 @@ export default function SingleNews({ locale, consul }) {
       <div className={styles.consulContainer}>
         <div className={styles.consulInfo}>
           <div className={styles.country}>
-            <img src="../assets/serbiaFlag.png" alt="Country" />
+            <img src={`../assets/flags/${country}_flag-png-small.png`} alt="Country" />
             <h3>{displayTitle}</h3>
           </div>
           <img src={imageBuilder(image)} alt="consul profile image" />

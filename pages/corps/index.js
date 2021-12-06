@@ -43,7 +43,7 @@ export default function News({ locale, consuls }) {
                 }>
                 <h3 style={{ marginBottom: '0rem' }}>{cons.displayTitle}</h3>
                 <p style={{ marginTop: '0rem', textTransform: 'capitalize' }}>
-                  Country: {cons.country}
+                  Country: {cons.country.replace(/-/g, ' ')}
                 </p>
               </li>
             );
