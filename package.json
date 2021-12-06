@@ -24,6 +24,7 @@
     "react-dom": "17.0.2",
     "react-horizontal-scrolling-menu": "^2.3.2",
     "react-indiana-drag-scroll": "^2.0.1",
+    "react-modal-image": "^2.5.0",
     "react-responsive-carousel": "^3.2.21",
     "react-slick": "^0.28.1",
     "sass": "^1.39.0",

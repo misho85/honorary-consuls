@@ -1,6 +1,7 @@
 import { getClient } from '../../lib/sanity';
 import { PortableText, imageBuilder } from '../../lib/sanity';
 import ScrollContainer from 'react-indiana-drag-scroll';
+import ModalImage from 'react-modal-image';
 import { groq } from 'next-sanity';
 import moment from 'moment';
 import React, { useEffect, useRef } from 'react';
@@ -49,14 +50,13 @@ export default function SingleNews({ locale, news }) {
             style={{ display: 'flex', margin: '2rem 0rem' }}
             innerRef={scrollRef}>
             {postGallery?.images.map((img, index) => (
-              <img
+              <ModalImage
+                className={styles.imgPreview}
                 key={img._key}
-                src={imageBuilder(img)}
-                style={
-                  index !== postGallery?.images?.length - 1
-                    ? { width: '300px', marginRight: '1rem', cursor: 'pointer' }
-                    : { width: '300px', marginRight: '0rem', cursor: 'pointer' }
-                }
+                small={imageBuilder(img)}
+                large={imageBuilder(img)}
+                hideDownload
+                hideZoom
               />
             ))}
           </ScrollContainer>

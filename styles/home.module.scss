@@ -742,3 +742,10 @@ p.he {
   justify-content: center;
   background-color: rgba(211, 211, 211, 0.514);
 }
+.imgPreview {
+  width: 300px;
+  margin-right: 1rem;
+  object-fit: contain;
+  max-width: unset !important;
+  max-height: 150px !important;
+}
