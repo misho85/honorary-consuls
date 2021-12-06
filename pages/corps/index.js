@@ -2,10 +2,11 @@ import { getClient } from '../../lib/sanity';
 import { groq } from 'next-sanity';
 import styles from '../../styles/home.module.scss';
 import { useRouter } from 'next/router';
+import useTranslation from 'next-translate/useTranslation';
 // *[_type in ["consuls", "post"]] | [[title.en, name] match 'new*']
 export default function News({ locale, consuls }) {
   const sortedConsuls = consuls.sort((a, b) => a.displayTitle.localeCompare(b.displayTitle));
-
+  const { t } = useTranslation();
   const router = useRouter();
   const returnClassName = classname => {
     if (locale === 'he') {
@@ -16,7 +17,7 @@ export default function News({ locale, consuls }) {
   return (
     <div className={styles.newsContainer}>
       <div className={styles.newsContent}>
-        <h3 className={returnClassName(styles.pageTitle)}>Consuls</h3>
+        <h3 className={returnClassName(styles.pageTitle)}>{t('common:corps')}</h3>
         <ul
           style={
             locale === 'he'
