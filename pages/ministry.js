@@ -19,14 +19,33 @@ const Ministry = ({ locale }) => {
         <div className={styles.infoContent}>
           <h3 className={returnClassName(styles.pageTitle)}>{t('common:foreign_ministry')}</h3>
           <InfoBlock className={returnClassName(styles.infoBlock)}>
-            <p>
-              משרד החוץ בישראל, כבמדינות אחרות בעולם, עוסק בגיבוש מדיניות החוץ של הממשלה, בביצועה
-              ובהסברתה - המשרד מטפל בניהול יחסיה הבינלאומיים של המדינה. המשרד מייצג את המדינה בפני
-              ממשלות זרות וארגונים בינלאומיים; שוקד על קידום קשרי הכלכלה, התרבות והמדע, ומקדם את
-              שיתוף הפעולה עם ארצות מתפתחות. משרד החוץ לרבות באמצעות חטיבת הטקס אמון על הקשר בין
-              השגרירויות הזרות הפועלות בישראל וכן על קונסולי כבוד הפועלים בישראל. חטיבת הטקס מארגנת
-              סמינרים תקופתיים לסגל של קונסולי כבוד. לעוד מידע על פעילות משרד החוץ נא ללחוץ על
-              הקישור _____
+            <p>{t('common:minitrsy_text_1')}</p>
+            <p>{t('common:minitrsy_text_2')}</p>
+            <p
+              style={
+                locale === 'he'
+                  ? { display: 'flex', flexDirection: 'column' }
+                  : { display: 'flex', flexDirection: 'column' }
+              }>
+              {locale === 'he' ? (
+                <>
+                  <p style={{ marginBottom: '0rem' }}>{t('common:minitrsy_text_3')}</p>{' '}
+                  <a
+                    style={{ wordBreak: 'break-all' }}
+                    href="https://www.gov.il/he/departments/ministry_of_foreign_affairs/govil-landing-page">
+                    https://www.gov.il/he/departments/ministry_of_foreign_affairs/govil-landing-page
+                  </a>{' '}
+                </>
+              ) : (
+                <>
+                  <p style={{ marginBottom: '0rem' }}>{t('common:minitrsy_text_3')}</p>{' '}
+                  <a
+                    style={{ wordBreak: 'break-all' }}
+                    href="https://www.gov.il/en/departments/ministry_of_foreign_affairs/govil-landing-page">
+                    https://www.gov.il/en/departments/ministry_of_foreign_affairs/govil-landing-page
+                  </a>{' '}
+                </>
+              )}
             </p>
           </InfoBlock>
         </div>
