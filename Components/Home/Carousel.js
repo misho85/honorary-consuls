@@ -124,8 +124,8 @@ export default function Carousel({ locale }) {
           }}>
           <div className={returnClassName(styles.titleContent)}>
             <div>
-              <h3>{t('common:header_title')}</h3>
               <h3>{t('common:header_title_he')}</h3>
+              <h3>{t('common:header_title')}</h3>
             </div>
             <div className={returnClassName(styles.langSwticher)}>
               <Link href={router.asPath} locale="en" scroll={false}>
@@ -314,12 +314,42 @@ export default function Carousel({ locale }) {
                   </p>
                 </div>
               </div>
-              <Link href="https://www.ficacworld.org/">
-                <a target="_blank">
-                  <p>{t('common:ficac')}</p>
-                </a>
-              </Link>
-
+              <p
+                className={router.pathname === '/ficac' ? styles.activeBtn : null}
+                onClick={() =>
+                  router
+                    .push(
+                      {
+                        pathname: '/ficac'
+                      },
+                      undefined,
+                      { scroll: false }
+                    )
+                    .then(() => {
+                      window.scrollTo({ top: 610, behavior: 'smooth' });
+                      setOpenMenu(false);
+                    })
+                }>
+                {t('common:ficac')}
+              </p>
+              <p
+                className={router.pathname === '/ministry' ? styles.activeBtn : null}
+                onClick={() =>
+                  router
+                    .push(
+                      {
+                        pathname: '/ministry'
+                      },
+                      undefined,
+                      { scroll: false }
+                    )
+                    .then(() => {
+                      window.scrollTo({ top: 610, behavior: 'smooth' });
+                      setOpenMenu(false);
+                    })
+                }>
+                {t('common:foreign_ministry')}
+              </p>
               <div className={`${returnClassName(styles.linksContainer)}`}>
                 <p>
                   {t('common:conventions')}
@@ -347,24 +377,6 @@ export default function Carousel({ locale }) {
                 </div>
               </div>
 
-              <p
-                className={router.pathname === '/ministry' ? styles.activeBtn : null}
-                onClick={() =>
-                  router
-                    .push(
-                      {
-                        pathname: '/ministry'
-                      },
-                      undefined,
-                      { scroll: false }
-                    )
-                    .then(() => {
-                      window.scrollTo({ top: 610, behavior: 'smooth' });
-                      setOpenMenu(false);
-                    })
-                }>
-                {t('common:foreign_ministry')}
-              </p>
               <p
                 className={router.pathname === '/news' ? styles.activeBtn : null}
                 onClick={() =>

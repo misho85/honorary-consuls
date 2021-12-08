@@ -74,9 +74,7 @@ const ContacTMain = ({ news, locale }) => {
             {t('common:contact')}
           </h3>
           <h4>{t('common:consular_corps_of_israel')}</h4>
-          <p className={styles.address}>
-            {t('common:office-address_1')} <br /> {t('common:office-address_2')}
-          </p>
+          <p className={styles.address}>{t('common:office-address_2')}</p>
           <a href={t('common:office-mail')}>{t('common:office-mail')}</a>
         </div>
 

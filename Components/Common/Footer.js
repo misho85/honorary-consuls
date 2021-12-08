@@ -30,7 +30,7 @@ const Footer = () => {
       <div className={styles.footerContent}>
         <p>
           Copyright &copy; 2021 | All rights reserved to the Consular Corps in Israel | Design by DC
-          Hub
+          Hub | Developed by Magna Media
         </p>
         <div className={styles.social} style={{visibility: "hidden"}}>
           <img src="../assets/facebok.png" alt="Facebook" />
