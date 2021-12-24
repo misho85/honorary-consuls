@@ -462,7 +462,7 @@ export default function Carousel({ locale }) {
                         backgroundAttachment: 'fixed'
                       }}>
                       <div />
-                      {img.carouselImages.imageText[locale] ? (
+                      {img?.carouselImages?.imageText?.[locale] ? (
                         <PortableText
                           renderContainerOnSingleChild
                           blocks={img?.carouselImages?.imageText?.[locale]}
