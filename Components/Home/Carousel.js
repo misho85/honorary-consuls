@@ -465,7 +465,7 @@ export default function Carousel({ locale }) {
                       {img.carouselImages.imageText[locale] ? (
                         <PortableText
                           renderContainerOnSingleChild
-                          blocks={img.carouselImages.imageText[locale]}
+                          blocks={img?.carouselImages?.imageText?.[locale]}
                           className={dark ? styles.darken : styles.nonDarken}
                         />
                       ) : null}
