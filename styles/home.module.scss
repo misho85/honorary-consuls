@@ -648,8 +648,16 @@
 p.he {
   text-align: right;
 }
+.consulBio {
+  p {
+    min-height: 24px;
+  }
+}
 .consulBio.he {
   text-align: right;
+    p {
+    min-height: 24px;
+  }
 }
 .searchInput {
   width: 80%;
