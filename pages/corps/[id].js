@@ -31,6 +31,10 @@ export default function SingleNews({ locale, consul }) {
         <div className={returnClassName(styles.consulBio)}>
           <PortableText renderContainerOnSingleChild blocks={bio[locale]} />
           <div className={returnClassName(styles.consulSocial)}>
+            <p style={locale === 'he' ? { textAlign: 'right', visibility: "hidden" } : { visibility: "hidden" }}>
+              E-mail: <a href="mailto: test123@gmail.com">test123@gmail.com</a>
+            </p>
+
             <div className={styles.socialBtns}>
               {socialMedia?.length
                 ? socialMedia.map((media, index) => {
