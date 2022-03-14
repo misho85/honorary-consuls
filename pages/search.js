@@ -5,7 +5,6 @@ import NewsBlock from 'Components/Home/NewsBlock';
 import React, { useEffect } from 'react';
 
 export default function Home({ locale, news, searchRes, searchKey }) {
-  console.log(searchKey, 'KEy');
   return (
     <>
       <div style={{ minHeight: '700px' }}>
@@ -43,7 +42,7 @@ export const getServerSideProps = async ctx => {
     };
   }
   const searchQuery = groq`
-*[_type in ["consuls", "post"]] | [[title.${locale}, name, country, author, excerpt.${locale}] match '${searchKey}*']
+*[_type in ["consuls", "post"]] | [[displayTitle, title.he, title.en, name, country, author, excerpt.en, excerpt.he, bio.en[].children[].text, bio.he[].children[].text] match '${searchKey}']
 `;
   const searchRes = await getClient(false).fetch(searchQuery);
 

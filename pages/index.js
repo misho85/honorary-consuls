@@ -21,13 +21,12 @@ export default function Home({ locale, news }) {
 const queryNews = groq`
 *[_type == "post"][0..5] | order(_createdAt desc)
 `;
-export const getStaticProps = async ({ locale }) => {
+export const getServerSideProps = async ({ locale }) => {
   const news = await getClient(false).fetch(queryNews);
   return {
     props: {
       news,
       locale
-    },
-    revalidate: 10
+    }
   };
 };

@@ -16,7 +16,7 @@ export default function News({ locale, consuls }) {
   };
   return (
     <div className={styles.newsContainer}>
-      <div className={styles.newsContent}>
+      <div className={styles.newsContent} dir={locale === 'he' ? 'rtl' : 'ltf'}>
         <h3 className={returnClassName(styles.pageTitle)}>{t('common:corps')}</h3>
         <ul
           style={
@@ -55,7 +55,7 @@ export default function News({ locale, consuls }) {
   );
 }
 
-export const getStaticProps = async ({ locale }) => {
+export const getServerSideProps = async ({ locale }) => {
   const queryConsuls = groq`
 *[_type == "consuls"] | order(_createdAt desc)
 `;
@@ -64,7 +64,6 @@ export const getStaticProps = async ({ locale }) => {
     props: {
       consuls,
       locale
-    },
-    revalidate: 10
+    }
   };
 };

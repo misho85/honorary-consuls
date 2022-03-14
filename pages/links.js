@@ -37,14 +37,13 @@ const Links = ({ locale, links }) => {
 const queryLinks = groq`
 *[_type == "links"] | order(_createdAt desc)
 `;
-export const getStaticProps = async ({ locale }) => {
+export const getServerSideProps = async ({ locale }) => {
   const links = await getClient(false).fetch(queryLinks);
   return {
     props: {
       links,
       locale
-    },
-    revalidate: 10
+    }
   };
 };
 

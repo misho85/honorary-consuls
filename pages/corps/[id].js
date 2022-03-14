@@ -28,10 +28,15 @@ export default function SingleNews({ locale, consul }) {
           </div>
           <img src={imageBuilder(image)} alt="consul profile image" />
         </div>
-        <div className={returnClassName(styles.consulBio)}>
+        <div className={returnClassName(styles.consulBio)} dir={locale === 'he' ? 'rtl' : 'ltf'}>
           <PortableText renderContainerOnSingleChild blocks={bio[locale]} />
           <div className={returnClassName(styles.consulSocial)}>
-            <p style={locale === 'he' ? { textAlign: 'right', visibility: "hidden" } : { visibility: "hidden" }}>
+            <p
+              style={
+                locale === 'he'
+                  ? { textAlign: 'right', visibility: 'hidden' }
+                  : { visibility: 'hidden' }
+              }>
               E-mail: <a href="mailto: test123@gmail.com">test123@gmail.com</a>
             </p>
 
@@ -58,20 +63,7 @@ export default function SingleNews({ locale, consul }) {
   );
 }
 
-export const getStaticPaths = async () => {
-  const queryConsuls = groq`
-  *[_type == "consuls"] {
-      slug
-  }`;
-  const consulsPaths = await getClient(false).fetch(queryConsuls);
-  const paths = consulsPaths.map(cons => ({
-    params: { id: cons.slug.current }
-  }));
-
-  return { paths, fallback: 'blocking' };
-};
-
-export const getStaticProps = async ({ locale, params }) => {
+export const getServerSideProps = async ({ locale, params }) => {
   const id = params.id;
 
   const queryConsulsId = groq`
@@ -82,7 +74,6 @@ export const getStaticProps = async ({ locale, params }) => {
     props: {
       consul,
       locale
-    },
-    revalidate: 100
+    }
   };
 };

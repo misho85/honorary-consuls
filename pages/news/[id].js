@@ -66,19 +66,7 @@ export default function SingleNews({ locale, news }) {
   );
 }
 
-export const getStaticPaths = async () => {
-  const queryNews = groq`
-  *[_type == "post"] {
-      slug
-  }`;
-  const newsPaths = await getClient(false).fetch(queryNews);
-  const paths = newsPaths.map(post => ({
-    params: { id: post.slug.current }
-  }));
-  return { paths, fallback: 'blocking' };
-};
-
-export const getStaticProps = async ({ locale, params }) => {
+export const getServerSideProps = async ({ locale, params }) => {
   const id = params.id;
 
   const queryNewsId = groq`
@@ -89,7 +77,6 @@ export const getStaticProps = async ({ locale, params }) => {
     props: {
       news,
       locale
-    },
-    revalidate: 100
+    }
   };
 };
