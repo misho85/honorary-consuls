@@ -18,7 +18,7 @@ export default function SingleNews({ locale, consul }) {
     }
     return `${classname}`;
   };
- 
+ console.log(country)
   return (
     <div className={styles.consul}>
       <div className={styles.consulContainer}>
