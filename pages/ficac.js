@@ -41,13 +41,13 @@ const Ministry = ({ locale }) => {
                   נוספות בקופנהגן ב-26 באוקטובר 1984 וב-9-10 באוקטובר 1986 כדי לערוך חוקה פועלת,
                   הנקראת חוקי קופנהגן.
                   <br /> <br />
-                  בראש FICAC עומד: Hon. Aykut Eken (Turkey), Honorary Consul General of Jamaica
-                  וסגנו Hon. Kostas N. Lefkaritis (Cyprus), Honorary Consul of the Republic of
-                  Zambia
+                  בראש FICAC עומד: Hon. Aykut Eken (Turkey), Honorary Consul General of
+                  <br />
+                  Jamaica וסגנו Hon. Kostas N. Lefkaritis (Cyprus), Honorary Consul of the
+                  <br /> 
+                  Republic of Zambia
                   <br /> <br />
-                  לאתר FICAC לחץ כאן: כמלכ"ר.
-                  <br /> <br />
-                  קונסולי הכבוד רובם ככולם מבצעים את תפקידם בהתנדבות מלאה ללא שכר.
+                  לאתר FICAC לחץ כאן:
                 </p>
                 <a href="https://www.ficacworld.org/">https://www.ficacworld.org/</a>
               </>
@@ -83,8 +83,7 @@ const Ministry = ({ locale }) => {
                   <br /> <br />
                   For the FICAC website click here:
                   <br /> <br />
-                  The vast majority of the Honorary Consuls perform their duties on a voluntary,
-                  unpaid basis.
+
                 </p>
                 <a href="https://www.ficacworld.org/">https://www.ficacworld.org/</a>
               </>
