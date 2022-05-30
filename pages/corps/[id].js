@@ -18,14 +18,25 @@ export default function SingleNews({ locale, consul }) {
     }
     return `${classname}`;
   };
- console.log(country)
+
+  let country2 = country;
+
+  let displayTitle2 = displayTitle;
+
+  if (displayTitle.includes('?')) {
+    const newData = displayTitle.split('?');
+
+    country2 = newData[0];
+    displayTitle2 = newData[1];
+  }
+
   return (
     <div className={styles.consul}>
       <div className={styles.consulContainer}>
         <div className={styles.consulInfo}>
           <div className={styles.country}>
-            <img src={`../assets/flags/${country}_flag-png-small.png`} alt="Country" />
-            <h3>{displayTitle}</h3>
+            <img src={`../assets/flags/${country2}_flag-png-small.png`} alt="Country" />
+            <h3>{displayTitle2}</h3>
           </div>
           <img src={imageBuilder(image)} alt="consul profile image" />
         </div>

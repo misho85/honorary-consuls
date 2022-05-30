@@ -25,6 +25,17 @@ export default function News({ locale, consuls }) {
               : { paddingLeft: '0rem', textAlign: 'left', listStyleType: 'none' }
           }>
           {sortedConsuls.map(cons => {
+            let country2 = cons.country;
+
+            let displayTitle2 = cons.displayTitle;
+
+            if (displayTitle2.includes('?')) {
+              const newData = displayTitle2.split('?');
+
+              country2 = newData[0];
+              displayTitle2 = newData[1];
+            }
+
             return (
               <li
                 key={cons._id}
@@ -42,9 +53,9 @@ export default function News({ locale, consuls }) {
                       window.scrollTo({ top: 610, behavior: 'smooth' });
                     })
                 }>
-                <h3 style={{ marginBottom: '0rem' }}>{cons.displayTitle}</h3>
+                <h3 style={{ marginBottom: '0rem' }}>{displayTitle2}</h3>
                 <p style={{ marginTop: '0rem', textTransform: 'capitalize' }}>
-                  {cons.country.replace(/-/g, ' ')}
+                  {country2.replace(/-/g, ' ')}
                 </p>
               </li>
             );

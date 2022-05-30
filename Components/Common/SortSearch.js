@@ -28,6 +28,7 @@ const SortSearch = ({ searchRes, locale }) => {
     return { news, corps };
   };
   const { news, corps } = sortContent();
+
   return (
     <div className={styles.infoContainer}>
       <div className={styles.linksContent}>
@@ -42,6 +43,12 @@ const SortSearch = ({ searchRes, locale }) => {
               {t('common:corps')}
             </h1>
             {corps.map(res => {
+              let displayTitle2 = res?.displayTitle;
+
+              if (displayTitle2.includes('?')) {
+                displayTitle2 = displayTitle2.split('?')[1];
+              }
+
               return (
                 <InfoBlock
                   key={res?._id}
@@ -59,9 +66,7 @@ const SortSearch = ({ searchRes, locale }) => {
                         window.scrollTo({ top: 610, behavior: 'smooth' });
                       });
                   }}>
-                  <h3 style={locale === 'he' ? { textAlign: 'right' } : null}>
-                    {res?.displayTitle}
-                  </h3>
+                  <h3 style={locale === 'he' ? { textAlign: 'right' } : null}>{displayTitle2}</h3>
                 </InfoBlock>
               );
             })}
