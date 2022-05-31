@@ -26,8 +26,8 @@ export default function SingleNews({ locale, consul }) {
   if (displayTitle.includes('?')) {
     const newData = displayTitle.split('?');
 
-    country2 = newData[0];
-    displayTitle2 = newData[1];
+    country2 = newData[1];
+    displayTitle2 = newData[0];
   }
 
   return (

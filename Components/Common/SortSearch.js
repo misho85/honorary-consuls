@@ -46,7 +46,7 @@ const SortSearch = ({ searchRes, locale }) => {
               let displayTitle2 = res?.displayTitle;
 
               if (displayTitle2.includes('?')) {
-                displayTitle2 = displayTitle2.split('?')[1];
+                displayTitle2 = displayTitle2.split('?')[0];
               }
 
               return (
