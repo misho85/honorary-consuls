@@ -85,7 +85,7 @@ export default function Carousel({ locale }) {
     if (carouselGallery) {
       if (carouselGallery?.[active]?.carouselImages?.image?.overlay) {
         return `url(${imageBuilder(carouselGallery[active].carouselImages.image)})
-        ,linear-gradient(180deg, rgba(0,0,0,1) 4%, rgba(84,113,182,0.8) 30%, rgba(255,255,255,1) 100%)`;
+        ,linear-gradient(180deg, rgba(0,0,0,1) 4%, rgba(84,113,182,0.8) 30%, rgba(255,255,255,1) 60%)`;
       } else {
         return `url(${imageBuilder(carouselGallery?.[active]?.carouselImages?.image)})`;
       }
