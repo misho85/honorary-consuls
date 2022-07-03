@@ -25,6 +25,7 @@ export default function Carousel({ locale }) {
   const carouselRef = useRef(null);
   const [faded, setFaded] = useState(false);
   const [dark, setDark] = useState(false);
+
   const settings = {
     draggable: false,
     fade: true,
@@ -46,8 +47,10 @@ export default function Carousel({ locale }) {
       );
     }
   };
+
   const handleScroll = () => {
     const distance = window.scrollY;
+
     if (carouselGallery) {
       if (distance > 100) {
         if (!dark) {
@@ -69,6 +72,7 @@ export default function Carousel({ locale }) {
       }
     }
   };
+
   const handleDarken = op => {
     if (op === '+') {
       return setDark(true);
@@ -76,12 +80,12 @@ export default function Carousel({ locale }) {
       return setDark(false);
     }
   };
+
   const returnBg = () => {
     if (carouselGallery) {
       if (carouselGallery?.[active]?.carouselImages?.image?.overlay) {
-        return `url(${imageBuilder(
-          carouselGallery[active].carouselImages.image
-        )}), linear-gradient(180deg, rgba(0,0,0,1) 4%, rgba(84,113,182,1) 39%, rgba(255,255,255,1) 100%)`;
+        return `url(${imageBuilder(carouselGallery[active].carouselImages.image)})
+        ,linear-gradient(180deg, rgba(0,0,0,1) 4%, rgba(84,113,182,0.8) 30%, rgba(255,255,255,1) 100%)`;
       } else {
         return `url(${imageBuilder(carouselGallery?.[active]?.carouselImages?.image)})`;
       }
@@ -89,16 +93,19 @@ export default function Carousel({ locale }) {
       return `linear-gradient(180deg, rgba(0,0,0,1) 4%, rgba(84,113,182,1) 39%, rgba(255,255,255,1) 100%)`;
     }
   };
+
   useEffect(() => {
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   });
+
   const returnClassName = classname => {
     if (locale === 'he') {
       return `${classname} ${styles.he}`;
     }
     return `${classname}`;
   };
+
   return (
     <div
       className={styles.carouselContainer}

@@ -9,6 +9,10 @@
   width: 100%;
   position: relative;
 
+  @media screen and (max-width: 500px) {
+    height: 70vh;
+  }
+
   .itemContent {
     transition: 0.2s ease-in-out;
     width: 100%;
@@ -67,6 +71,10 @@
   transition: height 0.5s ease-in-out;
   overflow: hidden;
   position: relative;
+
+  @media screen and (max-width: 500px) {
+    height: 70vh !important;
+  }
 }
 .title {
   z-index: 11;
@@ -655,7 +663,7 @@ p.he {
 }
 .consulBio.he {
   text-align: right;
-    p {
+  p {
     min-height: 24px;
   }
 }

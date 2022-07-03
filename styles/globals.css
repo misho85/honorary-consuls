@@ -95,3 +95,9 @@ a {
     transform: rotate(360deg);
   }
 }
+
+.slick-slider .slick-track,
+.slick-slider .slick-list {
+  -webkit-transform: unset !important;
+  transform: unset !important;
+}

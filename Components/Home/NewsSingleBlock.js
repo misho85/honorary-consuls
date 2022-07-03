@@ -3,7 +3,8 @@ import useTranslation from 'next-translate/useTranslation';
 import styles from '../../styles/home.module.scss';
 import { useRouter } from 'next/router';
 import moment from 'moment';
-const NewsSingleBlock = ({ author, excerpt, title, _createdAt, locale, slug }) => {
+
+const NewsSingleBlock = ({ author, excerpt, title, publishedAt, locale, slug }) => {
   const router = useRouter();
   const { t } = useTranslation();
   const returnClassName = classname => {
@@ -12,6 +13,7 @@ const NewsSingleBlock = ({ author, excerpt, title, _createdAt, locale, slug }) =
     }
     return `${classname}`;
   };
+
   return (
     <div className={returnClassName(styles.newsSingleBlock)}>
       <h3
@@ -37,7 +39,7 @@ const NewsSingleBlock = ({ author, excerpt, title, _createdAt, locale, slug }) =
         </span>
         <span className={styles.blue}>{author}</span>
         <span>{t('common:on')}</span>
-        <span className={styles.blue}>{moment(_createdAt).format('MMMM DD, YYYY')}</span>
+        <span className={styles.blue}>{moment(publishedAt).format('MMMM DD, YYYY')}</span>
       </p>
       <p className={returnClassName(styles.excerpt)}>{excerpt?.[locale]}</p>
     </div>
